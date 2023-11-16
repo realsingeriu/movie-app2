@@ -4,7 +4,7 @@ import "./App.css";
 import MovieList from "./components/MovieList";
 import MovieListHeading from "./components/MovieListHeading";
 import SearchBox from "./components/SearchBox";
-import React, { Component } from "react";
+import React from "react";
 import ScrollContainer from "react-indiana-drag-scroll";
 
 function App() {
