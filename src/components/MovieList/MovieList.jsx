@@ -1,5 +1,6 @@
 import "./MovieList.css";
 import Fire from '../../assets/fire.png';
+import MovieCard from "./MovieCard";
 
 export default function MovieList() {
 
