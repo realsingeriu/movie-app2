@@ -1,5 +1,6 @@
 import "./MovieList.css";
 import Fire from '../../assets/fire.png';
+import _ from 'lodash';
 
 import MovieCard from "./MovieCard";
 import { useEffect, useState } from "react";
@@ -37,10 +38,18 @@ export default function MovieList() {
 		setSort((prev) => ({ ...prev, [name]: value }));
 	  };
     
+    useEffect(()=>{
+      if(sort.by !== 'default'){
+      const sortedMovies=_.orderBy(filterMovies, [sort.by], [sort.order])
+      setFilterMovies(sortedMovies);
+    }
+    },[sort])
     
     useEffect(()=>{
      fetchMovies();
    }, []);
+
+  
 
 	return (
 		<section className='movie_list'>
