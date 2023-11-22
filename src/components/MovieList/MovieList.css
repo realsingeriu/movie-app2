@@ -5,8 +5,8 @@
 }
 
 .movie_list_heading {
-  font-size: 26px;
-  color: #ffe400;
+	font-size: 26px;
+	color: var(--heading_color);
 }
 
 .movie_filter {
@@ -15,6 +15,7 @@
 }
 
 .movie_filter_item {
+  color: var(--body_color);
   padding: 5px 10px;
   cursor: pointer;
 }

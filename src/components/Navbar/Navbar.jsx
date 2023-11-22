@@ -2,6 +2,7 @@ import Fire from '../../assets/fire.png';
 import Star from '../../assets/glowing-star.png';
 import Party from '../../assets/partying-face.png';
 import './Navbar.css';
+import DarkMode from '../DarkMode/DarkMode';
 
 export default function Navbar() {
 	return (
@@ -9,6 +10,7 @@ export default function Navbar() {
 			<h1>MovieApp</h1>
 
 			<div className='navbar_links'>
+				<DarkMode />
 				<a href=''>
 					인기순
 					<img className='navbar_emoji' src={Fire} alt='fire emoji' />

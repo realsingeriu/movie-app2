@@ -2,17 +2,30 @@
   font-family: 'Pretendard-Regular';
   src: url(./assets/fonts/Pretendard-Regular.woff2);
 }
+/* CSS 컬러 변수 설정 */
+:root {
+	--body_background: #101010;
+	--body_color: #fff;
+	--heading_color: #ffe400;
+}
+/* 라이트 테마에서 변수색을 바꿈 */
+[data-theme='light'] {
+	--body_background: #fff;
+	--body_color: #000;
+	--heading_color: #000;
+}
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+  transition: all 0.04s ease-in-out;
 }
 
 body {
-	background-color: #101010;
-	color: #fff;
-  font-family: 'Pretendard-Regular', sans-serif;
+	background-color: var(--body_background);
+	color: var(--body_color);
+	font-family: 'Pretendard-Regular', sans-serif;
 }
 
 .align_center {
