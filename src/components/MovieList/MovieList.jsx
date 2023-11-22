@@ -30,7 +30,7 @@ export default function MovieList() {
 			</header>
 
 			<div className='movie_cards'>
-				
+        <MovieCard />
 			</div>
 		</section>
 	);
