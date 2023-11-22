@@ -19,10 +19,15 @@ export default function MovieList() {
     setFilterMovies(data.results);
    };
    function handleFilter(rate){
-    setMinRating(rate); // 최소 점수 세팅
+    if (minRating === rate) {
+			setMinRating(0);
+			setFilterMovies(movies);
+		} else {
+			setMinRating(rate); // 최소 점수 세팅
     const filtered = movies.filter((movie) => movie.vote_average >= rate);
     setFilterMovies(filtered);
-   }
+		}
+  }
     useEffect(()=>{
      fetchMovies();
    }, []);
