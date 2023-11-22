@@ -6,6 +6,9 @@ import { useEffect, useState } from "react";
 
 export default function MovieList() {
   const [movies, setMovies] = useState([])
+  const [filterMovies, setFilterMovies] = useState([]);
+	const [minRating, setMinRating] = useState(0);
+
   async function fetchMovies() {
    
     const response = await fetch(
@@ -13,7 +16,13 @@ export default function MovieList() {
     );
     const data = await response.json();
 		setMovies(data.results);
+    setFilterMovies(data.results);
    };
+   function handleFilter(rate){
+    setMinRating(rate); // 최소 점수 세팅
+    const filtered = movies.filter((movie) => movie.vote_average >= rate);
+    setFilterMovies(filtered);
+   }
     useEffect(()=>{
      fetchMovies();
    }, []);
@@ -27,9 +36,9 @@ export default function MovieList() {
 
 				<div className='align_center movie_list_fs'>
 					<ul className='align_center movie_filter'>
-						<li className='movie_filter_item active'>8+ Star</li>
-						<li className='movie_filter_item'>7+ Star</li>
-						<li className='movie_filter_item'>6+ Star</li>
+						<li onClick={()=>handleFilter(8)} className='movie_filter_item active'>8+ Star</li>
+						<li onClick={()=>handleFilter(7)} className='movie_filter_item'>7+ Star</li>
+						<li onClick={()=>handleFilter(6)} className='movie_filter_item'>6+ Star</li>
 					</ul>
 
 					<select name='' id='' className='movie_sorting'>
@@ -46,7 +55,7 @@ export default function MovieList() {
 
 			<div className='movie_cards'>
         
-        {movies.map((movie) => (
+        {filterMovies.map((movie) => (
 					<MovieCard key={movie.id} movie={movie} />
 				))}
 			</div>
