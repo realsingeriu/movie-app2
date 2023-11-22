@@ -41,9 +41,9 @@ export default function MovieList() {
 
 				<div className='align_center movie_list_fs'>
 					<ul className='align_center movie_filter'>
-						<li onClick={()=>handleFilter(8)} className='movie_filter_item active'>8+ Star</li>
-						<li onClick={()=>handleFilter(7)} className='movie_filter_item'>7+ Star</li>
-						<li onClick={()=>handleFilter(6)} className='movie_filter_item'>6+ Star</li>
+						<li onClick={()=>handleFilter(8)} className={minRating===8?'movie_filter_item active' : 'movie_filter_item'}>8+ Star</li>
+						<li onClick={()=>handleFilter(7)} className={minRating===7?'movie_filter_item active' : 'movie_filter_item'}>7+ Star</li>
+						<li onClick={()=>handleFilter(6)} className={minRating===6?'movie_filter_item active' : 'movie_filter_item'}>6+ Star</li>
 					</ul>
 
 					<select name='' id='' className='movie_sorting'>
