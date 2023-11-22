@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url(./assets/fonts/Pretendard-Regular.woff2);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #101010;
+	color: #fff;
+  font-family: 'Pretendard-Regular', sans-serif;
+}
