@@ -8,6 +8,10 @@ export default function MovieList() {
   const [movies, setMovies] = useState([])
   const [filterMovies, setFilterMovies] = useState([]);
 	const [minRating, setMinRating] = useState(0);
+  const [sort, setSort] = useState({
+		by: 'default',
+		order: 'asc',
+	});
 
   async function fetchMovies() {
    
@@ -28,6 +32,12 @@ export default function MovieList() {
     setFilterMovies(filtered);
 		}
   }
+    const handleSort = (e) => {
+		const { name, value } = e.target;
+		setSort((prev) => ({ ...prev, [name]: value }));
+	  };
+    
+    
     useEffect(()=>{
      fetchMovies();
    }, []);
@@ -46,14 +56,14 @@ export default function MovieList() {
 						<li onClick={()=>handleFilter(6)} className={minRating===6?'movie_filter_item active' : 'movie_filter_item'}>6+ Star</li>
 					</ul>
 
-					<select name='' id='' className='movie_sorting'>
-						<option value=''>SortBy</option>
-						<option value=''>Date</option>
-						<option value=''>Rating</option>
+					<select name='by' id='by' onChange={handleSort} className='movie_sorting'>
+						<option value='default'>정렬기준</option>
+						<option value='release_date'>출시일</option>
+						<option value='vote_average'>평점</option>
 					</select>
-					<select name='' id='' className='movie_sorting'>
-						<option value=''>Ascending</option>
-						<option value=''>Descending</option>
+					<select name='order' id='order' onChange={handleSort}  className='movie_sorting'>
+						<option value='asc'>순서대로</option>
+						<option value='desc'>큰순으로</option>
 					</select>
 				</div>
 			</header>
