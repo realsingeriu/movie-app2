@@ -1,4 +1,5 @@
 import './App.css'
+import MovieList from './components/MovieList/MovieList';
 import Navbar from './components/Navbar/Navbar'
 
 export default function App() {
@@ -6,7 +7,7 @@ export default function App() {
     <div className='app'>
       <Navbar />
 
-      <main>Main Content</main>
+      <MovieList />
     </div>
   );
 }
