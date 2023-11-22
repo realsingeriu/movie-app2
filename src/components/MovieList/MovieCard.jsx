@@ -21,7 +21,7 @@ export default function MovieCard({movie}) {
 					</p>
 				</div>
 				<p className='movie_description'>
-          {movie.overview.slice(0, 100) + '...'}</p>
+          {movie.overview.slice(0, 200) + '...'}</p>
 			</div>
 		</a>
 	);
