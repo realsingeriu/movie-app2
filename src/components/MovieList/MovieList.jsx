@@ -5,7 +5,7 @@ import _ from 'lodash';
 import MovieCard from "./MovieCard";
 import { useEffect, useState } from "react";
 
-export default function MovieList() {
+export default function MovieList({ type, title, emoji }) {
   const [movies, setMovies] = useState([])
   const [filterMovies, setFilterMovies] = useState([]);
 	const [minRating, setMinRating] = useState(0);
@@ -17,7 +17,7 @@ export default function MovieList() {
   async function fetchMovies() {
    
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_MOVIE_API}&language=ko`
+      `https://api.themoviedb.org/3/movie/${type}?api_key=${import.meta.env.VITE_MOVIE_API}&language=ko`
     );
     const data = await response.json();
 		setMovies(data.results);
@@ -52,11 +52,11 @@ export default function MovieList() {
   
 
 	return (
-		<section className='movie_list'>
+		<section className='movie_list' id={`${type}`}>
 			<header className='align_center movie_list_header'>
 				<h2 className='align_center movie_list_heading'>
-					인기순 <img src={Fire} alt='fire emoji' className='navbar_emoji' />
-				</h2>
+					{title} <img src={emoji} alt='fire emoji' className='navbar_emoji' />
+				</h2> 
 
 				<div className='align_center movie_list_fs'>
 					<ul className='align_center movie_filter'>
