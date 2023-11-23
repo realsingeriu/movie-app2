@@ -5,7 +5,7 @@ import _ from 'lodash';
 import MovieCard from "./MovieCard";
 import { useEffect, useState } from "react";
 
-export default function MovieList({ type, title, emoji }) {
+export default function MovieList({ type, title, emoji, moviesProp }) {
   const [movies, setMovies] = useState([])
   const [filterMovies, setFilterMovies] = useState([]);
 	const [minRating, setMinRating] = useState(0);
